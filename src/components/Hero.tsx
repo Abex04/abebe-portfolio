@@ -88,7 +88,7 @@ export const Hero: React.FC = () => {
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-electric-400 flex-shrink-0" />
-                <span>CGPA 3.27 | Major 3.56</span>
+                <span>Full-Stack &amp; Systems Dev</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-electric-400 flex-shrink-0" />
@@ -105,11 +105,11 @@ export const Hero: React.FC = () => {
 
               <div className="rounded-2xl bg-navy-900 border border-slate-800/90 shadow-2xl p-6 sm:p-7 overflow-hidden">
                 {/* Photo container */}
-                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-5 bg-navy-950 border border-slate-800 shadow-inner group">
+                <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-5 bg-navy-950 border border-slate-800 shadow-inner group">
                   <ImageWithFallback
                     src={personalInfo.profileImage}
                     alt={personalInfo.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                     fallbackIcon={
                       <div className="text-center font-bold text-electric-400 tracking-wider">AMD</div>
                     }

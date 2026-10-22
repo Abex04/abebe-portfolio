@@ -78,7 +78,7 @@ export const About: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-2 text-slate-300">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                  <span>Strong major GPA (3.56 / 4.00)</span>
+                  <span>Disciplined software engineering foundation</span>
                 </div>
                 <div className="flex items-center gap-2 text-slate-300">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />

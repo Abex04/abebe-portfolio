@@ -45,7 +45,7 @@ abebe-mihiretu-portfolio/
 │   │   ├── Projects.tsx               # Cards for Property Hub, TMS, HealthBridge
 │   │   ├── ProjectModal.tsx           # In-depth architectural deep-dive dialog
 │   │   ├── Experience.tsx             # Swiss Diagnostics & Freelance timeline
-│   │   ├── Education.tsx              # AAiT degree (3.56 Major GPA), Qiyas, ODC training
+│   │   ├── Education.tsx              # AAiT degree curriculum, Qiyas & ODC training credentials
 │   │   ├── ProfessionalQualities.tsx  # Bilingual communication & professional references
 │   │   ├── Contact.tsx                # Verified email, phone, location & mailto generator
 │   │   ├── Footer.tsx                 # Professional footer & navigation anchors

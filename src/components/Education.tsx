@@ -47,22 +47,14 @@ export const Education: React.FC = () => {
               </span>
             </div>
 
-            {/* GPA Highlights Grid */}
-            <div className="grid grid-cols-2 gap-3 my-6 p-4 rounded-xl bg-slate-900/90 border border-slate-800">
-              <div className="text-left">
-                <span className="text-xs text-slate-400 block mb-1">Major GPA</span>
-                <span className="text-2xl font-extrabold text-white">
-                  {education.majorGpa}
-                </span>
-                <span className="text-[11px] text-emerald-400 block mt-0.5">High Academic Standing</span>
-              </div>
-              <div className="text-left">
-                <span className="text-xs text-slate-400 block mb-1">Cumulative GPA (CGPA)</span>
-                <span className="text-2xl font-extrabold text-white">
-                  {education.cgpa}
-                </span>
-                <span className="text-[11px] text-slate-400 block mt-0.5">Scale of 4.00</span>
-              </div>
+            {/* Degree Overview Highlight */}
+            <div className="my-6 p-4 rounded-xl bg-slate-900/90 border border-slate-800 text-left">
+              <span className="text-xs text-electric-400 font-semibold uppercase tracking-wider block mb-1">
+                Faculty of Electrical &amp; Computer Engineering
+              </span>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Comprehensive engineering curriculum covering software architecture, algorithm design, relational database systems, computer networking, operating systems, and professional software quality assurance.
+              </p>
             </div>
 
             {/* Relevant Coursework */}

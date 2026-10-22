@@ -35,8 +35,6 @@ export interface EducationItem {
   campus: string;
   location: string;
   graduationYear: string;
-  cgpa: string;
-  majorGpa: string;
   coursework: string[];
 }
 

@@ -15,14 +15,14 @@ export const personalInfo = {
   cvDownloadPath: "/Abebe_Mihiretu_CV.pdf",
   availability: "Available to start immediately",
   bio: `Software Engineering graduate from Addis Ababa University, Addis Ababa Institute of Technology (AAiT), with hands-on experience in software development, IT support, and technical troubleshooting. Skilled in developing web applications, diagnosing hardware and software issues, and providing practical technical assistance. A clear communicator and collaborative team player with strong analytical thinking, adaptability, and a willingness to learn. Committed to accuracy, reliability, teamwork, and continuous improvement, with the ability to contribute across technical and operational functions in a professional environment. Available to start immediately.`,
-  profileImage: "/images/profile.jpg", // Users can drop profile.jpg in public/images
+  profileImage: "/images/profile.png",
   profileFallback: "/images/profile-avatar.svg",
 };
 
 export const stats = [
   { label: "Degree & Institution", value: "B.Sc. Software Engineering, AAiT", detail: "Addis Ababa University (2025)" },
-  { label: "Academic Standing", value: "3.56 Major GPA", detail: "3.27 Cumulative GPA" },
-  { label: "Core Competency", value: "Software & IT Support", detail: "Full-Stack Dev + Systems Support" },
+  { label: "Technical Focus", value: "Software & Systems", detail: "Full-Stack Dev + Infrastructure Support" },
+  { label: "Core Competency", value: "Software & IT Support", detail: "Hands-on Development & Troubleshooting" },
   { label: "Status", value: "Immediate Availability", detail: "Open for Corporate & Technical Roles" },
 ];
 
@@ -191,8 +191,6 @@ export const education: EducationItem = {
   campus: "Addis Ababa Institute of Technology (AAiT)",
   location: "Addis Ababa, Ethiopia",
   graduationYear: "Graduated 2025",
-  cgpa: "3.27 / 4.00",
-  majorGpa: "3.56 / 4.00",
   coursework: [
     "Object-Oriented Programming (Java)",
     "Data Structures and Algorithms",
