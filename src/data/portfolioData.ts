@@ -11,6 +11,8 @@ export const personalInfo = {
   location: "Addis Ababa, Ethiopia",
   github: "https://github.com/Abex04",
   githubUsername: "Abex04",
+  linkedin: "https://www.linkedin.com/in/abebe-mihiretu-b66791233/",
+  linkedinUsername: "abebe-mihiretu",
   cvFileName: "Abebe_Mihiretu_CV.pdf",
   cvDownloadPath: "/Abebe_Mihiretu_CV.pdf",
   availability: "Available to start immediately",

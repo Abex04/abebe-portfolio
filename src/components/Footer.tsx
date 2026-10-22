@@ -1,6 +1,6 @@
 import React from 'react';
 import { Download, Mail, ChevronUp } from 'lucide-react';
-import { GithubIcon } from './Icons';
+import { GithubIcon, LinkedinIcon } from './Icons';
 import { personalInfo } from '../data/portfolioData';
 
 export const Footer: React.FC = () => {
@@ -71,6 +71,17 @@ export const Footer: React.FC = () => {
                 >
                   <GithubIcon className="w-3.5 h-3.5" />
                   <span>GitHub Profile</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={personalInfo.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 hover:text-white transition-colors"
+                >
+                  <LinkedinIcon className="w-3.5 h-3.5" />
+                  <span>LinkedIn Profile</span>
                 </a>
               </li>
               <li>

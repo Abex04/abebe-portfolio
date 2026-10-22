@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, Download, Mail, MapPin, CheckCircle } from 'lucide-react';
-import { GithubIcon } from './Icons';
+import { GithubIcon, LinkedinIcon } from './Icons';
 import { personalInfo } from '../data/portfolioData';
 import { ImageWithFallback } from './ImageWithFallback';
 
@@ -137,22 +137,34 @@ export const Hero: React.FC = () => {
                   </p>
 
                   {/* Quick Contact & Social links strip */}
-                  <div className="grid grid-cols-2 gap-2 pt-3 border-t border-slate-800 text-xs">
+                  <div className="grid grid-cols-3 gap-2 pt-3 border-t border-slate-800 text-xs">
                     <a
                       href={personalInfo.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 p-2 rounded-lg bg-slate-800/50 hover:bg-slate-800 text-slate-300 hover:text-white transition-colors border border-slate-800"
+                      className="flex items-center justify-center gap-1.5 p-2 rounded-lg bg-slate-800/50 hover:bg-slate-800 text-slate-300 hover:text-white transition-colors border border-slate-800"
+                      title="GitHub Profile"
                     >
                       <GithubIcon className="w-3.5 h-3.5 text-electric-400" />
-                      <span className="truncate">GitHub: {personalInfo.githubUsername}</span>
+                      <span className="truncate">GitHub</span>
+                    </a>
+                    <a
+                      href={personalInfo.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-1.5 p-2 rounded-lg bg-slate-800/50 hover:bg-slate-800 text-slate-300 hover:text-white transition-colors border border-slate-800"
+                      title="LinkedIn Profile"
+                    >
+                      <LinkedinIcon className="w-3.5 h-3.5 text-electric-400" />
+                      <span className="truncate">LinkedIn</span>
                     </a>
                     <a
                       href={`mailto:${personalInfo.email}`}
-                      className="flex items-center gap-2 p-2 rounded-lg bg-slate-800/50 hover:bg-slate-800 text-slate-300 hover:text-white transition-colors border border-slate-800"
+                      className="flex items-center justify-center gap-1.5 p-2 rounded-lg bg-slate-800/50 hover:bg-slate-800 text-slate-300 hover:text-white transition-colors border border-slate-800"
+                      title="Send Email"
                     >
                       <Mail className="w-3.5 h-3.5 text-electric-400" />
-                      <span className="truncate">Email Me</span>
+                      <span className="truncate">Email</span>
                     </a>
                   </div>
                 </div>

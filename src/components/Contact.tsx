@@ -10,7 +10,7 @@ import {
   Send,
   MessageSquare
 } from 'lucide-react';
-import { GithubIcon } from './Icons';
+import { GithubIcon, LinkedinIcon } from './Icons';
 import { personalInfo } from '../data/portfolioData';
 
 export const Contact: React.FC = () => {
@@ -157,6 +157,38 @@ export const Contact: React.FC = () => {
                   rel="noopener noreferrer"
                   className="p-2 rounded-lg bg-slate-800/80 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700 transition-colors"
                   aria-label="Open GitHub"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+
+            {/* LinkedIn Card */}
+            <div className="p-6 rounded-2xl bg-navy-950 border border-slate-800 hover:border-slate-700 transition-all shadow-sm">
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-electric-500/10 border border-electric-500/20 text-electric-400 flex items-center justify-center">
+                    <LinkedinIcon className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-xs text-slate-400 font-medium block">LinkedIn Profile</span>
+                    <a
+                      href={personalInfo.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm sm:text-base font-semibold text-white hover:text-electric-300 transition-colors"
+                    >
+                      linkedin.com/in/{personalInfo.linkedinUsername}
+                    </a>
+                  </div>
+                </div>
+
+                <a
+                  href={personalInfo.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg bg-slate-800/80 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700 transition-colors"
+                  aria-label="Open LinkedIn"
                 >
                   <ExternalLink className="w-4 h-4" />
                 </a>
