@@ -23,15 +23,10 @@ export const Hero: React.FC = () => {
           
           {/* Left Column: Headlines & Call to Actions */}
           <div className="lg:col-span-7 flex flex-col text-left">
-            {/* Status pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/80 text-xs font-medium text-slate-300 mb-6 w-fit backdrop-blur-sm shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>{personalInfo.availability}</span>
-              <span className="text-slate-500">•</span>
-              <span className="flex items-center gap-1 text-slate-400">
-                <MapPin className="w-3 h-3 text-electric-400" />
-                {personalInfo.location}
-              </span>
+            {/* Location pill */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700/80 text-xs font-medium text-slate-300 mb-6 w-fit backdrop-blur-sm">
+              <MapPin className="w-3.5 h-3.5 text-electric-400" />
+              <span>{personalInfo.location}</span>
             </div>
 
             {/* Candidate Name */}
@@ -84,15 +79,15 @@ export const Hero: React.FC = () => {
             <div className="pt-6 border-t border-slate-800/80 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs text-slate-400">
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-electric-400 flex-shrink-0" />
-                <span>AAiT B.Sc. Graduated 2025</span>
+                <span>B.Sc. Software Engineering (AAiT)</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-electric-400 flex-shrink-0" />
-                <span>Full-Stack &amp; Systems Dev</span>
+                <span>Full-Stack Application Development</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-electric-400 flex-shrink-0" />
-                <span>Swiss Diagnostics IT exp.</span>
+                <span>IT Infrastructure &amp; Systems Support</span>
               </div>
             </div>
           </div>
@@ -116,24 +111,14 @@ export const Hero: React.FC = () => {
                     fallbackTitle={personalInfo.name}
                     fallbackSubtitle="Software Engineer • AAiT"
                   />
-                  
-                  {/* Subtle verified badge overlay */}
-                  <div className="absolute bottom-3 right-3 px-2.5 py-1 rounded-md bg-navy-950/90 backdrop-blur-md border border-slate-700/80 text-[11px] font-medium text-slate-200 flex items-center gap-1.5 shadow-sm">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                    Verified Profile
-                  </div>
                 </div>
 
                 {/* Card Info summary */}
                 <div className="text-left">
-                  <div className="flex items-center justify-between mb-2">
-                    <h2 className="text-lg font-bold text-white tracking-tight">{personalInfo.name}</h2>
-                    <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-electric-500/10 text-electric-300 border border-electric-500/20">
-                      AAiT '25
-                    </span>
-                  </div>
+                  <h2 className="text-lg font-bold text-white tracking-tight mb-0.5">{personalInfo.name}</h2>
+                  <p className="text-xs font-medium text-electric-400 mb-2">Software Engineering &amp; IT Support</p>
                   <p className="text-xs text-slate-400 mb-4 leading-relaxed">
-                    Software Development, Full-Stack Applications, and Enterprise IT Infrastructure Support.
+                    Full-Stack Web Development, Secure Applications, and Enterprise IT Infrastructure.
                   </p>
 
                   {/* Quick Contact & Social links strip */}

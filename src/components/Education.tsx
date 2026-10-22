@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, Award, BookOpen, CheckCircle, Sparkles } from 'lucide-react';
+import { GraduationCap, Award, BookOpen, Sparkles } from 'lucide-react';
 import { education, trainingList } from '../data/portfolioData';
 
 export const Education: React.FC = () => {
@@ -111,11 +111,6 @@ export const Education: React.FC = () => {
                 )}
               </div>
             ))}
-
-            <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-400 flex items-center gap-2.5">
-              <CheckCircle className="w-4 h-4 text-electric-400 flex-shrink-0" />
-              <span>All education and training details correspond exactly with the verified CV credentials.</span>
-            </div>
           </div>
 
         </div>

@@ -63,7 +63,7 @@ export const Navbar: React.FC = () => {
                 {personalInfo.shortName}
               </span>
               <span className="text-xs text-slate-400 font-normal">
-                AAiT Software Engineer '25
+                Software Engineer
               </span>
             </div>
           </a>

@@ -101,7 +101,7 @@ export const ProfessionalQualities: React.FC = () => {
             </div>
             <div>
               <h4 className="text-base font-bold text-white mb-1">
-                Verified Professional Reference
+                Professional Reference
               </h4>
               <p className="text-sm font-semibold text-electric-300">
                 {referenceInfo.name}

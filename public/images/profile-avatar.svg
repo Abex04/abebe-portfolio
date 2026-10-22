@@ -32,9 +32,4 @@
   <text x="250" y="367" fill="#f8fafc" font-family="'Inter', system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="middle">Abebe Mihiretu Demessa</text>
   <text x="250" y="384" fill="#60a5fa" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="600" text-anchor="middle">B.Sc. Software Engineering · AAiT</text>
 
-  <!-- Verified Badge -->
-  <g transform="translate(320, 125)">
-    <circle cx="15" cy="15" r="16" fill="#10b981"/>
-    <path d="M9 15 L14 19 L21 11" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </g>
 </svg>

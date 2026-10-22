@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
               Software Engineering Graduate from Addis Ababa University, Addis Ababa Institute of Technology (AAiT). Specializing in full-stack web applications, secure enterprise systems, and IT infrastructure support.
             </p>
             <div className="text-[11px] text-slate-500">
-              Addis Ababa, Ethiopia • Available to start immediately
+              Addis Ababa, Ethiopia
             </div>
           </div>
 

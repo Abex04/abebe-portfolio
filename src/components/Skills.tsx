@@ -7,7 +7,6 @@ import {
   GitBranch, 
   ShieldCheck, 
   Users,
-  CheckCircle,
   Terminal
 } from 'lucide-react';
 import { skillCategories } from '../data/portfolioData';
@@ -138,17 +137,11 @@ export const Skills: React.FC = () => {
 
               {/* Bottom Subtle Indicator */}
               <div className="mt-5 pt-3 border-t border-slate-800/60 flex items-center justify-between text-[11px] text-slate-400">
-                <span>Verified in CV</span>
+                <span>Core Competency</span>
                 <span className="text-electric-400 font-mono font-medium">{category.skills.length} skills</span>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Academic / Professional Authenticity Note */}
-        <div className="mt-12 p-4 rounded-xl bg-navy-950 border border-slate-800/90 max-w-2xl mx-auto flex items-center justify-center gap-3 text-xs text-slate-300">
-          <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-          <span>Every competency listed is grounded directly in my degree coursework at AAiT, practical IT support roles, or software project implementations.</span>
         </div>
 
       </div>

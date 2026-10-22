@@ -64,7 +64,7 @@ export const Contact: React.FC = () => {
             Direct Contact &amp; Engagement
           </h2>
           <p className="mt-3 text-base text-slate-300">
-            Available immediately for full-time corporate, banking, and software engineering opportunities in Addis Ababa or remote positions.
+            Open for corporate, banking, and software engineering opportunities in Addis Ababa or remote positions.
           </p>
         </div>
 
@@ -216,7 +216,7 @@ export const Contact: React.FC = () => {
                 Official Curriculum Vitae (PDF)
               </h4>
               <p className="text-xs text-slate-300 mb-4">
-                Download my verified CV document containing full academic records, training details, and project links.
+                Download my official CV document containing complete education, professional experience, and technical projects.
               </p>
               <a
                 href={personalInfo.cvDownloadPath}

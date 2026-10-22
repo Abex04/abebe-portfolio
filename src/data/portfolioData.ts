@@ -15,8 +15,7 @@ export const personalInfo = {
   linkedinUsername: "abebe-mihiretu",
   cvFileName: "Abebe_Mihiretu_CV.pdf",
   cvDownloadPath: "/Abebe_Mihiretu_CV.pdf",
-  availability: "Available to start immediately",
-  bio: `Software Engineering graduate from Addis Ababa University, Addis Ababa Institute of Technology (AAiT), with hands-on experience in software development, IT support, and technical troubleshooting. Skilled in developing web applications, diagnosing hardware and software issues, and providing practical technical assistance. A clear communicator and collaborative team player with strong analytical thinking, adaptability, and a willingness to learn. Committed to accuracy, reliability, teamwork, and continuous improvement, with the ability to contribute across technical and operational functions in a professional environment. Available to start immediately.`,
+  bio: `Software Engineering graduate from Addis Ababa University, Addis Ababa Institute of Technology (AAiT), with hands-on experience in software development, IT support, and technical troubleshooting. Skilled in developing web applications, diagnosing hardware and software issues, and providing practical technical assistance. A clear communicator and collaborative team player with strong analytical thinking, adaptability, and a willingness to learn. Committed to accuracy, reliability, teamwork, and continuous improvement, with the ability to contribute across technical and operational functions in a professional environment.`,
   profileImage: "/images/profile.png",
   profileFallback: "/images/profile-avatar.svg",
 };
@@ -25,7 +24,7 @@ export const stats = [
   { label: "Degree & Institution", value: "B.Sc. Software Engineering, AAiT", detail: "Addis Ababa University (2025)" },
   { label: "Technical Focus", value: "Software & Systems", detail: "Full-Stack Dev + Infrastructure Support" },
   { label: "Core Competency", value: "Software & IT Support", detail: "Hands-on Development & Troubleshooting" },
-  { label: "Status", value: "Immediate Availability", detail: "Open for Corporate & Technical Roles" },
+  { label: "Location", value: "Addis Ababa", detail: "Ethiopia" },
 ];
 
 export const skillCategories: SkillCategory[] = [
@@ -82,7 +81,7 @@ export const projects: Project[] = [
     summary: "Production-deployed real estate marketplace and administration platform built for property discovery in Addis Ababa with comprehensive multi-lingual support.",
     description: [
       "Built a modern real-estate marketplace and administration platform tailored for property search and listing management in Addis Ababa.",
-      "Designed and implemented secure administrative workflows for verified property submissions and inventory oversight.",
+      "Designed and implemented secure administrative workflows for property submissions and inventory oversight.",
       "Engineered multi-level listing filtering by property type, price, neighborhood, and amenities with real-time responsive updates.",
       "Implemented bilingual user interface localization in English and Amharic to serve local and diaspora home seekers.",
       "Deployed to production on Vercel with structured Schema.org data and technical SEO to maximize search indexing."
@@ -133,7 +132,7 @@ export const projects: Project[] = [
     summary: "Healthcare and pharmaceutical access platform connecting patients directly with licensed pharmacies for transparent medication discovery and delivery.",
     description: [
       "Spearheaded the frontend development for our final-year engineering capstone project at Addis Ababa University (AAiT).",
-      "Co-designed a platform that connects customers with verified pharmacies to ensure timely access to critical medications at home.",
+      "Co-designed a platform that connects customers with licensed pharmacies to ensure timely access to critical medications at home.",
       "Organized and coordinated tasks for a collaborative 5-member engineering team, managing milestones and sprint goals.",
       "Enforced version control standards with Git and GitHub, conducting code reviews and resolving merge conflicts across shared components.",
       "Delivered a responsive user experience utilizing Angular, React, HTML, and SCSS, optimized for both desktop and mobile users."
