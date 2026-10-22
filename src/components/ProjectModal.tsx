@@ -3,6 +3,7 @@ import { X, ExternalLink, CheckCircle2, ShieldCheck, Database } from 'lucide-rea
 import { GithubIcon } from './Icons';
 import type { Project } from '../types';
 import { ImageWithFallback } from './ImageWithFallback';
+import { TechIcon } from './TechIcon';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -109,9 +110,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1 rounded-md text-xs font-medium bg-slate-800 text-slate-200 border border-slate-700"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-200 border border-slate-700"
                 >
-                  {tech}
+                  <TechIcon name={tech.replace(/ \(.+\)/, '')} className="w-3.5 h-3.5" />
+                  <span>{tech}</span>
                 </span>
               ))}
             </div>

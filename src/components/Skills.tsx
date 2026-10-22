@@ -6,16 +6,17 @@ import {
   Cpu, 
   GitBranch, 
   ShieldCheck, 
-  Users,
-  Terminal
+  Users, 
+  Terminal 
 } from 'lucide-react';
 import { skillCategories } from '../data/portfolioData';
+import { getTechIconData } from './TechIcon';
 
 export const Skills: React.FC = () => {
   const [selectedFilter, setSelectedFilter] = useState<'all' | 'software' | 'it'>('all');
 
-  // Map icon names to Lucide icons
-  const getIcon = (iconName: string) => {
+  // Map category icon names to Lucide icons
+  const getCategoryIcon = (iconName: string) => {
     switch (iconName) {
       case 'Code':
         return <Code className="w-5 h-5 text-electric-400" />;
@@ -65,7 +66,7 @@ export const Skills: React.FC = () => {
         </div>
 
         {/* Filter Pills */}
-        <div className="flex items-center justify-center gap-2 mb-12">
+        <div className="flex items-center justify-center gap-2 mb-12 flex-wrap">
           <button
             onClick={() => setSelectedFilter('all')}
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
@@ -109,7 +110,7 @@ export const Skills: React.FC = () => {
                 {/* Header */}
                 <div className="flex items-center gap-3 mb-3">
                   <div className="p-2.5 rounded-xl bg-electric-500/10 border border-electric-500/20">
-                    {getIcon(category.iconName)}
+                    {getCategoryIcon(category.iconName)}
                   </div>
                   <div>
                     <h3 className="text-base font-bold text-white tracking-tight">
@@ -122,16 +123,22 @@ export const Skills: React.FC = () => {
                   {category.description}
                 </p>
 
-                {/* Skill Pills */}
+                {/* Skill Badges with Official Logos */}
                 <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-800/80 text-slate-200 border border-slate-700/70 hover:border-electric-500/40 hover:text-white transition-colors"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                  {category.skills.map((skill) => {
+                    const iconData = getTechIconData(skill);
+                    return (
+                      <div
+                        key={skill}
+                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-800/80 text-slate-200 border border-slate-700/70 hover:border-slate-600 hover:bg-slate-800 hover:text-white transition-all duration-200 hover:-translate-y-0.5 group shadow-sm"
+                      >
+                        <span className={`inline-flex items-center justify-center p-1 rounded-md ${iconData.bg} ${iconData.color} transition-transform group-hover:scale-110 flex-shrink-0`}>
+                          {iconData.icon}
+                        </span>
+                        <span>{skill}</span>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>

@@ -5,6 +5,7 @@ import { projects } from '../data/portfolioData';
 import type { Project } from '../types';
 import { ImageWithFallback } from './ImageWithFallback';
 import { ProjectModal } from './ProjectModal';
+import { TechIcon } from './TechIcon';
 
 export const Projects: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -124,13 +125,14 @@ export const Projects: React.FC = () => {
                     {project.technologies.slice(0, 4).map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-0.5 rounded text-[11px] font-medium bg-slate-800/80 text-slate-300 border border-slate-700/60"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium bg-slate-800/80 text-slate-300 border border-slate-700/60"
                       >
-                        {tech}
+                        <TechIcon name={tech.replace(/ \(.+\)/, '')} className="w-3 h-3" />
+                        <span>{tech}</span>
                       </span>
                     ))}
                     {project.technologies.length > 4 && (
-                      <span className="px-2 py-0.5 rounded text-[11px] font-medium bg-slate-900 text-slate-400">
+                      <span className="inline-flex items-center px-2 py-1 rounded-lg text-[11px] font-medium bg-slate-900 text-slate-400 border border-slate-800">
                         +{project.technologies.length - 4} more
                       </span>
                     )}
