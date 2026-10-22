@@ -88,7 +88,7 @@ export const About: React.FC = () => {
             </div>
           </div>
 
-          {/* 3 Core Competency Pillars */}
+          {/* Core Engineering Pillars */}
           <div className="lg:col-span-5 flex flex-col gap-4 text-left">
             
             {/* Pillar 1 */}

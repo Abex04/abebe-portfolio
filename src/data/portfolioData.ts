@@ -23,7 +23,7 @@ export const personalInfo = {
 export const stats = [
   { label: "Degree & Institution", value: "B.Sc. Software Engineering, AAiT", detail: "Addis Ababa University (2025)" },
   { label: "Technical Focus", value: "Software & Systems", detail: "Full-Stack Dev + Infrastructure Support" },
-  { label: "Core Competency", value: "Software & IT Support", detail: "Hands-on Development & Troubleshooting" },
+  { label: "Primary Expertise", value: "Software & IT Support", detail: "Hands-on Development & Troubleshooting" },
   { label: "Location", value: "Addis Ababa", detail: "Ethiopia" },
 ];
 

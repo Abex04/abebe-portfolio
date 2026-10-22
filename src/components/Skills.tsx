@@ -54,7 +54,7 @@ export const Skills: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-electric-500/10 border border-electric-500/20 text-electric-400 text-xs font-semibold uppercase tracking-wider mb-3">
-            Core Competencies
+            Skills &amp; Expertise
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Skills &amp; Technical Capabilities
@@ -74,7 +74,7 @@ export const Skills: React.FC = () => {
                 : 'bg-navy-900 text-slate-300 hover:text-white border border-slate-800 hover:bg-slate-800'
             }`}
           >
-            All Competencies ({skillCategories.length} Categories)
+            All Skills
           </button>
           <button
             onClick={() => setSelectedFilter('software')}
@@ -133,12 +133,6 @@ export const Skills: React.FC = () => {
                     </span>
                   ))}
                 </div>
-              </div>
-
-              {/* Bottom Subtle Indicator */}
-              <div className="mt-5 pt-3 border-t border-slate-800/60 flex items-center justify-between text-[11px] text-slate-400">
-                <span>Core Competency</span>
-                <span className="text-electric-400 font-mono font-medium">{category.skills.length} skills</span>
               </div>
             </div>
           ))}
