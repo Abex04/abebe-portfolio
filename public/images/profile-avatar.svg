@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <linearGradient id="pGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b132b"/>
+      <stop offset="50%" stop-color="#14213d"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="electricGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="circleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="500" height="500" rx="36" fill="url(#pGrad)"/>
+  
+  <!-- Subtle geometric background lines -->
+  <circle cx="250" cy="250" r="190" fill="none" stroke="#1e293b" stroke-width="2"/>
+  <circle cx="250" cy="250" r="150" fill="none" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.6"/>
+
+  <!-- Center Badge -->
+  <circle cx="250" cy="205" r="100" fill="url(#circleGrad)" opacity="0.9" filter="drop-shadow(0 15px 25px rgba(37,99,235,0.35))"/>
+  
+  <!-- Monogram Initials -->
+  <text x="250" y="228" fill="#ffffff" font-family="'Inter', system-ui, sans-serif" font-weight="800" font-size="64" text-anchor="middle" letter-spacing="2">AMD</text>
+
+  <!-- Name Banner -->
+  <rect x="80" y="340" width="340" height="54" rx="14" fill="#0b132b" stroke="#2563eb" stroke-width="2"/>
+  <text x="250" y="367" fill="#f8fafc" font-family="'Inter', system-ui, sans-serif" font-size="17" font-weight="700" text-anchor="middle">Abebe Mihiretu Demessa</text>
+  <text x="250" y="384" fill="#60a5fa" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="600" text-anchor="middle">B.Sc. Software Engineering · AAiT</text>
+
+  <!-- Verified Badge -->
+  <g transform="translate(320, 125)">
+    <circle cx="15" cy="15" r="16" fill="#10b981"/>
+    <path d="M9 15 L14 19 L21 11" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

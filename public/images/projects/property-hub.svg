@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b132b"/>
+      <stop offset="50%" stop-color="#14213d"/>
+      <stop offset="100%" stop-color="#091024"/>
+    </linearGradient>
+    <linearGradient id="blueGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg)"/>
+
+  <!-- Grid overlay -->
+  <g stroke="#1e293b" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="200" y1="0" x2="200" y2="500"/>
+    <line x1="400" y1="0" x2="400" y2="500"/>
+    <line x1="600" y1="0" x2="600" y2="500"/>
+  </g>
+
+  <!-- Browser window chrome -->
+  <g transform="translate(60, 50)">
+    <rect width="680" height="400" rx="12" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+    
+    <!-- Window header -->
+    <rect width="680" height="42" rx="12" fill="#1e293b"/>
+    <rect y="30" width="680" height="12" fill="#1e293b"/>
+    <circle cx="25" cy="21" r="6" fill="#ef4444"/>
+    <circle cx="45" cy="21" r="6" fill="#eab308"/>
+    <circle cx="65" cy="21" r="6" fill="#22c55e"/>
+
+    <rect x="180" y="10" width="320" height="22" rx="6" fill="#0f172a"/>
+    <text x="340" y="25" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">property-hub.et • Addis Ababa Real Estate</text>
+
+    <!-- App mockup content -->
+    <!-- Nav -->
+    <rect x="25" y="60" width="140" height="20" rx="4" fill="url(#blueGlow)"/>
+    <rect x="520" y="60" width="135" height="20" rx="4" fill="#334155"/>
+
+    <!-- Search bar banner -->
+    <rect x="25" y="95" width="630" height="60" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="45" y="130" fill="#f8fafc" font-family="system-ui, sans-serif" font-weight="bold" font-size="14">Find Properties in Addis Ababa • Bole, CMC, Sarbet</text>
+    <rect x="530" y="107" width="110" height="36" rx="6" fill="#2563eb"/>
+    <text x="585" y="130" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="600" font-size="12" text-anchor="middle">Search</text>
+
+    <!-- Listing cards row -->
+    <!-- Card 1 -->
+    <rect x="25" y="175" width="195" height="195" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <rect x="25" y="175" width="195" height="100" rx="8" fill="#2563eb" opacity="0.3"/>
+    <path d="M70 240 L120 195 L170 240 Z" fill="#38bdf8"/>
+    <rect x="40" y="290" width="120" height="12" rx="3" fill="#f8fafc"/>
+    <rect x="40" y="310" width="80" height="10" rx="3" fill="#94a3b8"/>
+    <rect x="40" y="335" width="70" height="18" rx="4" fill="#22c55e" opacity="0.2"/>
+    <text x="75" y="348" fill="#4ade80" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Available</text>
+
+    <!-- Card 2 -->
+    <rect x="242" y="175" width="195" height="195" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <rect x="242" y="175" width="195" height="100" rx="8" fill="#38bdf8" opacity="0.25"/>
+    <path d="M290 240 L340 195 L390 240 Z" fill="#60a5fa"/>
+    <rect x="257" y="290" width="130" height="12" rx="3" fill="#f8fafc"/>
+    <rect x="257" y="310" width="90" height="10" rx="3" fill="#94a3b8"/>
+    <rect x="257" y="335" width="70" height="18" rx="4" fill="#22c55e" opacity="0.2"/>
+    <text x="292" y="348" fill="#4ade80" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Available</text>
+
+    <!-- Card 3 -->
+    <rect x="460" y="175" width="195" height="195" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <rect x="460" y="175" width="195" height="100" rx="8" fill="#818cf8" opacity="0.25"/>
+    <path d="M505 240 L555 195 L605 240 Z" fill="#818cf8"/>
+    <rect x="475" y="290" width="115" height="12" rx="3" fill="#f8fafc"/>
+    <rect x="475" y="310" width="75" height="10" rx="3" fill="#94a3b8"/>
+    <rect x="475" y="335" width="70" height="18" rx="4" fill="#3b82f6" opacity="0.2"/>
+    <text x="510" y="348" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Verified</text>
+  </g>
+
+  <!-- Live badge -->
+  <rect x="630" y="25" width="125" height="30" rx="15" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-width="1.5"/>
+  <circle cx="648" cy="40" r="5" fill="#10b981"/>
+  <text x="690" y="44" fill="#34d399" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Live &amp; Deployed</text>
+</svg>

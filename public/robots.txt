@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abebemihiretu.vercel.app/sitemap.xml
