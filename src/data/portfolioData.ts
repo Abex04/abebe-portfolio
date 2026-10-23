@@ -209,14 +209,14 @@ export const trainingList: TrainingItem[] = [
     id: "azure-fundamentals",
     title: "Microsoft Certified: Azure Fundamentals",
     provider: "Microsoft",
-    period: "Certified",
+    period: "2024",
     description: "Cloud computing concepts, Azure architecture, compute, storage, networking, security, privacy, compliance, and cloud governance."
   },
   {
     id: "cisco-networking",
     title: "Networking Basics",
     provider: "Cisco Networking Academy",
-    period: "Certified",
+    period: "2024",
     description: "Computer networking fundamentals, IP addressing (IPv4/IPv6), OSI & TCP/IP protocols, routing, switching, and network troubleshooting."
   },
   {
