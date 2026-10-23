@@ -75,7 +75,7 @@ export const skillCategories: SkillCategory[] = [
 export const projects: Project[] = [
   {
     id: "property-hub",
-    title: "Abebe's Property Hub",
+    title: "Abebes Property Hub",
     category: "Full-Stack",
     role: "Sole Developer across Design, Development, and Deployment",
     summary: "Production-deployed real estate marketplace and administration platform built for property discovery in Addis Ababa with comprehensive multi-lingual support.",
@@ -87,7 +87,7 @@ export const projects: Project[] = [
       "Deployed to production on Vercel with structured Schema.org data and technical SEO to maximize search indexing."
     ],
     technologies: ["React", "TypeScript", "Tailwind CSS", "Supabase (PostgreSQL)", "Vercel", "CI/CD", "Schema.org", "Row Level Security (RLS)"],
-    liveUrl: "https://property-hub-abebe.vercel.app", // Clean placeholder link, easily editable
+    liveUrl: "https://abebes-property-hub.vercel.app/",
     isDeployed: true,
     image: "/images/projects/property-hub.svg",
     keyFeatures: [

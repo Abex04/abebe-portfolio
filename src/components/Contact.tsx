@@ -32,7 +32,7 @@ export const Contact: React.FC = () => {
     {
       label: 'General Technical Discussion',
       subject: 'Inquiry regarding your Portfolio & Projects',
-      body: `Hello Abebe,\n\nI reviewed your portfolio (including Abebe's Property Hub and your .NET/Angular projects) and would like to connect with you regarding technical work.\n\nBest regards,\n[Your Name]`
+      body: `Hello Abebe,\n\nI reviewed your portfolio (including Abebes Property Hub and your .NET/Angular projects) and would like to connect with you regarding technical work.\n\nBest regards,\n[Your Name]`
     }
   ];
 

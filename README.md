@@ -79,7 +79,7 @@ The website is already programmed with high-fidelity visual representations and 
 
 ### 2. Project Screenshots
 - Drop your project screenshots into `public/images/projects/`:
-  - `property-hub.png` (for Abebe's Property Hub)
+  - `property-hub.png` (for Abebes Property Hub)
   - `tms.png` (for Training Management System)
   - `healthbridge.png` (for HealthBridge)
 - Update the image file extensions in `src/data/portfolioData.ts` if switching from `.svg` to `.png` or `.jpg`.

@@ -36,7 +36,7 @@
     <circle cx="65" cy="21" r="6" fill="#22c55e"/>
 
     <rect x="180" y="10" width="320" height="22" rx="6" fill="#0f172a"/>
-    <text x="340" y="25" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">property-hub.et • Addis Ababa Real Estate</text>
+    <text x="340" y="25" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">abebes-property-hub.vercel.app • Real Estate in Addis Ababa</text>
 
     <!-- App mockup content -->
     <!-- Nav -->
