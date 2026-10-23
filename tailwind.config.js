@@ -8,44 +8,55 @@ export default {
   theme: {
     extend: {
       colors: {
+        primary: {
+          DEFAULT: '#6c63ff',
+          50: '#f4f3ff',
+          100: '#ebe9fe',
+          200: '#d9d6fe',
+          300: '#bfb8fd',
+          400: '#9f92fa',
+          500: '#6c63ff',
+          600: '#5a4fe6',
+          700: '#483cbf',
+          800: '#382f94',
+          900: '#2d2777',
+        },
+        dark: {
+          DEFAULT: '#050508',
+          bg: '#050508',
+          card: '#13131a',
+          cardHover: '#181824',
+          border: '#1e1e2e',
+          borderHover: 'rgba(108, 99, 255, 0.4)',
+        },
         navy: {
-          50: '#f0f4f8',
-          100: '#d9e2ec',
-          200: '#bcccdc',
-          300: '#9fb3c8',
-          400: '#829ab1',
-          500: '#627d98',
-          600: '#486581',
-          700: '#334e68',
-          800: '#1b2a4a',
           900: '#0b132b',
           950: '#070b1a',
-        },
-        electric: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
         },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
-      boxShadow: {
-        'subtle': '0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03)',
-        'card': '0 4px 6px -1px rgba(11, 19, 43, 0.05), 0 2px 4px -1px rgba(11, 19, 43, 0.03)',
-        'card-hover': '0 20px 25px -5px rgba(11, 19, 43, 0.1), 0 10px 10px -5px rgba(11, 19, 43, 0.04)',
-        'glow': '0 0 25px -5px rgba(37, 99, 235, 0.25)',
+      animation: {
+        'float': 'float 6s ease-in-out infinite',
+        'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
+        'gradient-shift': 'gradient-shift 4s ease infinite',
       },
-      backgroundImage: {
-        'navy-gradient': 'linear-gradient(135deg, #0b132b 0%, #1b2a4a 100%)',
-      }
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-18px)' },
+        },
+        'pulse-glow': {
+          '0%, 100%': { boxShadow: '0 0 20px rgba(108, 99, 255, 0.3)' },
+          '50%': { boxShadow: '0 0 50px rgba(108, 99, 255, 0.7)' },
+        },
+        'gradient-shift': {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
+      },
     },
   },
   plugins: [],

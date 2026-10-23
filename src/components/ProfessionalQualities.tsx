@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { 
   MessageSquare, 
   Users, 
@@ -15,106 +16,110 @@ export const ProfessionalQualities: React.FC = () => {
   const getQualityIcon = (iconName: string) => {
     switch (iconName) {
       case 'MessageSquare':
-        return <MessageSquare className="w-5 h-5 text-electric-400" />;
+        return <MessageSquare className="w-5 h-5 text-primary" />;
       case 'Users':
-        return <Users className="w-5 h-5 text-electric-400" />;
+        return <Users className="w-5 h-5 text-primary" />;
       case 'Wrench':
-        return <Wrench className="w-5 h-5 text-electric-400" />;
+        return <Wrench className="w-5 h-5 text-primary" />;
       case 'Brain':
-        return <Brain className="w-5 h-5 text-electric-400" />;
+        return <Brain className="w-5 h-5 text-primary" />;
       case 'Lightbulb':
-        return <Lightbulb className="w-5 h-5 text-electric-400" />;
-      case 'CheckCircle':
-        return <CheckCircle className="w-5 h-5 text-electric-400" />;
+        return <Lightbulb className="w-5 h-5 text-primary" />;
       default:
-        return <CheckCircle className="w-5 h-5 text-electric-400" />;
+        return <CheckCircle className="w-5 h-5 text-primary" />;
     }
   };
 
   return (
-    <section className="py-20 bg-navy-950 relative border-t border-slate-800/80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 px-6 bg-[#050508] relative border-t border-white/5">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/2 left-0 w-80 h-80 bg-primary/10 rounded-full blur-[130px] pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-electric-500/10 border border-electric-500/20 text-electric-400 text-xs font-semibold uppercase tracking-wider mb-3">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <p className="text-primary text-xs uppercase tracking-[0.3em] mb-2 font-semibold">
             Work Ethic &amp; Attributes
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Professional Qualities &amp; Collaboration
-          </h2>
-          <p className="mt-3 text-base text-slate-300">
-            A reliable, communicative, and analytical approach essential for banking, corporate IT, and cross-functional engineering teams.
           </p>
-        </div>
+          <h2 className="text-3xl md:text-4xl font-black text-white">
+            Professional <span className="gradient-text">Qualities</span>
+          </h2>
+          <div className="w-12 h-1 bg-gradient-to-r from-primary to-pinkAccent rounded-full mx-auto mt-3" />
+        </motion.div>
 
-        {/* 6 Professional Qualities Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {professionalQualities.map((item, index) => (
-            <div
-              key={index}
-              className="p-6 rounded-2xl bg-navy-900/80 border border-slate-800 hover:border-slate-700 transition-all text-left shadow-sm hover-lift"
+        {/* Qualities Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left mb-12">
+          {professionalQualities.map((item, idx) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.08 }}
+              className="card rounded-2xl p-6 border-[#1e1e2e] hover:border-primary/45 transition-all duration-300"
             >
-              <div className="w-10 h-10 rounded-xl bg-electric-500/10 border border-electric-500/20 flex items-center justify-center mb-4">
+              <div className="w-11 h-11 rounded-xl bg-primary/15 border border-primary/30 flex items-center justify-center mb-4">
                 {getQualityIcon(item.icon)}
               </div>
-              <h3 className="text-base font-bold text-white mb-2">
+              <h3 className="text-base font-bold text-white mb-2 tracking-tight">
                 {item.title}
               </h3>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+              <p className="text-xs text-slate-300 leading-relaxed">
                 {item.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* Bottom Banner: Languages & Official Reference */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          
-          {/* Languages Card */}
-          <div className="md:col-span-6 p-6 rounded-2xl bg-navy-900 border border-slate-800 flex items-start gap-4 text-left shadow-sm">
-            <div className="p-3 rounded-xl bg-electric-500/10 border border-electric-500/20 text-electric-400 flex-shrink-0">
-              <Languages className="w-6 h-6" />
-            </div>
-            <div>
-              <h4 className="text-base font-bold text-white mb-1">
+        {/* Language & Reference Row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+          {/* Languages */}
+          <div className="card rounded-2xl p-6 border-[#1e1e2e]">
+            <div className="flex items-center gap-2.5 mb-3">
+              <Languages className="w-5 h-5 text-primary" />
+              <h3 className="text-base font-bold text-white">
                 Language Proficiency
-              </h4>
-              <p className="text-xs text-slate-400 mb-3 leading-relaxed">
-                Clear verbal and written technical communication across diverse stakeholders and user communities.
-              </p>
-              <div className="flex items-center gap-3">
-                <span className="px-3 py-1 rounded-md text-xs font-semibold bg-slate-800 text-slate-200 border border-slate-700">
-                  Amharic (Native / Fluent)
-                </span>
-                <span className="px-3 py-1 rounded-md text-xs font-semibold bg-slate-800 text-slate-200 border border-slate-700">
-                  English (Professional Working)
-                </span>
+              </h3>
+            </div>
+            <div className="grid grid-cols-2 gap-3 mt-3">
+              <div className="p-3 rounded-xl bg-black/40 border border-white/5">
+                <span className="text-xs text-slate-400 block">Amharic</span>
+                <span className="text-sm font-semibold text-white">Native / Fluent</span>
+              </div>
+              <div className="p-3 rounded-xl bg-black/40 border border-white/5">
+                <span className="text-xs text-slate-400 block">English</span>
+                <span className="text-sm font-semibold text-white">Professional Working</span>
               </div>
             </div>
           </div>
 
-          {/* Professional Reference Card */}
-          <div className="md:col-span-6 p-6 rounded-2xl bg-navy-900 border border-slate-800 flex items-start gap-4 text-left shadow-sm">
-            <div className="p-3 rounded-xl bg-electric-500/10 border border-electric-500/20 text-electric-400 flex-shrink-0">
-              <UserCheck className="w-6 h-6" />
-            </div>
-            <div>
-              <h4 className="text-base font-bold text-white mb-1">
+          {/* Academic / Professional Reference */}
+          <div className="card rounded-2xl p-6 border-[#1e1e2e]">
+            <div className="flex items-center gap-2.5 mb-3">
+              <UserCheck className="w-5 h-5 text-primary" />
+              <h3 className="text-base font-bold text-white">
                 Professional Reference
-              </h4>
-              <p className="text-sm font-semibold text-electric-300">
+              </h3>
+            </div>
+            <div className="p-3 rounded-xl bg-black/40 border border-white/5 mt-3">
+              <span className="text-sm font-semibold text-white block">
                 {referenceInfo.name}
-              </p>
-              <p className="text-xs text-slate-400 mb-2">
+              </span>
+              <span className="text-xs text-primary block mt-0.5">
                 {referenceInfo.company}
-              </p>
-              <span className="inline-block text-xs text-slate-300 bg-slate-800/80 px-2.5 py-1 rounded border border-slate-700/80">
+              </span>
+              <span className="text-xs text-slate-400 block mt-0.5">
                 {referenceInfo.note}
               </span>
             </div>
           </div>
-
         </div>
 
       </div>

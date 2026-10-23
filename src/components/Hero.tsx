@@ -1,164 +1,207 @@
-import React from 'react';
-import { ArrowRight, Download, Mail, MapPin, CheckCircle } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { motion } from 'motion/react';
+import { Download, ArrowRight, Mail, MapPin } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import { personalInfo } from '../data/portfolioData';
-import { ImageWithFallback } from './ImageWithFallback';
 
 export const Hero: React.FC = () => {
-  return (
-    <section id="hero" className="relative min-h-[92vh] flex items-center pt-28 pb-16 overflow-hidden">
-      {/* Background architectural glow & subtle grid */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-navy-950 to-navy-950 -z-10" />
-      <div 
-        className="absolute inset-0 opacity-[0.03] -z-10 pointer-events-none"
-        style={{
-          backgroundImage: `radial-gradient(#60a5fa 1px, transparent 1px)`,
-          backgroundSize: '32px 32px'
-        }}
-      />
-      <div className="absolute -top-40 -right-40 w-96 h-96 bg-electric-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+  // Rotating typewriter roles
+  const roles = [
+    'Full-Stack Web Developer',
+    'React & .NET Specialist',
+    'IT Systems & Troubleshooting Specialist',
+    'Software Engineering Graduate',
+  ];
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          
-          {/* Left Column: Headlines & Call to Actions */}
-          <div className="lg:col-span-7 flex flex-col text-left">
-            {/* Location pill */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700/80 text-xs font-medium text-slate-300 mb-6 w-fit backdrop-blur-sm">
-              <MapPin className="w-3.5 h-3.5 text-electric-400" />
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayText, setDisplayText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentRole = roles[roleIndex];
+    const speed = isDeleting ? 40 : 80;
+
+    const timer = setTimeout(() => {
+      if (!isDeleting) {
+        setDisplayText(currentRole.substring(0, displayText.length + 1));
+        if (displayText.length === currentRole.length) {
+          setTimeout(() => setIsDeleting(true), 1600);
+        }
+      } else {
+        setDisplayText(currentRole.substring(0, displayText.length - 1));
+        if (displayText.length === 0) {
+          setIsDeleting(false);
+          setRoleIndex((prev) => (prev + 1) % roles.length);
+        }
+      }
+    }, speed);
+
+    return () => clearTimeout(timer);
+  }, [displayText, isDeleting, roleIndex]);
+
+  return (
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden px-6 pt-28 pb-16"
+    >
+      {/* Background Glowing Ambient Orbs */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-[100px] animate-pulse pointer-events-none" />
+      <div
+        className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/15 rounded-full blur-[120px] animate-pulse pointer-events-none"
+        style={{ animationDelay: '1s' }}
+      />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] bg-pink-500/5 rounded-full blur-[150px] pointer-events-none" />
+
+      {/* Grid pattern overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(108,99,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(108,99,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center relative z-10">
+        
+        {/* Left Column: Bio & Calls to Action */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col text-left"
+        >
+          {/* Status pill badge with pulsing green light */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-5 w-fit"
+          >
+            <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse shadow-sm shadow-emerald-400/50" />
+            <span>Software Engineering Graduate • AAiT</span>
+          </motion.div>
+
+          {/* Candidate Name */}
+          <p className="text-sm font-semibold tracking-widest uppercase text-slate-400 mb-2">
+            {personalInfo.name}
+          </p>
+
+          {/* Big Headline */}
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-4 text-white">
+            Software Developer &amp; <span className="gradient-text block">IT Specialist</span>
+          </h1>
+
+          {/* Typewriter text ticker */}
+          <div className="h-9 mb-5 flex items-center">
+            <span className="text-lg md:text-xl text-slate-300 font-medium">
+              {displayText}
+              <span className="inline-block w-0.5 h-5 bg-primary ml-1.5 animate-pulse align-middle" />
+            </span>
+          </div>
+
+          {/* Concise bio */}
+          <p className="text-slate-400 leading-relaxed mb-7 max-w-lg text-base">
+            Graduated <span className="text-white font-semibold">2025</span> from{' '}
+            <span className="text-white font-semibold">Addis Ababa University, AAiT</span> with a B.Sc. in Software Engineering. Experienced in full-stack web engineering, API design, and hands-on IT systems hardware &amp; software troubleshooting.
+          </p>
+
+          {/* Dual Action Buttons */}
+          <div className="flex flex-wrap gap-4 mb-8">
+            <a
+              href={personalInfo.cvDownloadPath}
+              download="Abebe_Mihiretu_Demessa_CV.pdf"
+              className="flex items-center gap-2.5 px-7 py-3.5 animated-gradient text-white rounded-xl font-semibold transition-all duration-200 glow hover:scale-[1.02] active:scale-95 shadow-lg text-sm"
+            >
+              <Download className="w-4 h-4 text-white" />
+              <span>Download CV</span>
+            </a>
+
+            <a
+              href="#projects"
+              className="flex items-center gap-2 px-7 py-3.5 border border-primary/50 text-primary hover:bg-primary/10 rounded-xl font-semibold transition-all duration-200 text-sm hover:scale-[1.02] active:scale-95"
+            >
+              <span>View Projects</span>
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+
+          {/* Social Links & Location */}
+          <div className="flex flex-wrap items-center gap-6 pt-4 border-t border-[#1e1e2e]/80">
+            <div className="flex items-center gap-1.5 text-xs text-slate-400">
+              <MapPin className="w-3.5 h-3.5 text-primary" />
               <span>{personalInfo.location}</span>
             </div>
+            
+            <div className="h-4 w-px bg-[#1e1e2e]" />
 
-            {/* Candidate Name */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-4">
-              {personalInfo.name}
-            </h1>
-
-            {/* Professional Headline */}
-            <div className="text-lg sm:text-xl font-medium text-electric-400 mb-6 tracking-wide">
-              {personalInfo.headline}
-            </div>
-
-            {/* Concise Bio / Summary */}
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl font-normal">
-              Software Engineering graduate from <strong className="text-white font-medium">Addis Ababa University (AAiT)</strong> with hands-on experience across full-stack application development, systems troubleshooting, and practical IT support. Dedicated to delivering reliable software, maintaining robust infrastructure, and driving operational excellence for forward-thinking organizations.
-            </p>
-
-            {/* Prominent Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4 mb-10">
-              {/* Primary 1: View My Projects */}
+            <div className="flex items-center gap-4">
+              <span className="text-slate-500 text-xs uppercase tracking-wider font-medium">Find me on</span>
               <a
-                href="#projects"
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-sm bg-electric-600 hover:bg-electric-500 text-white shadow-lg shadow-electric-600/30 transition-all hover:shadow-electric-600/50 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-electric-400"
+                href={personalInfo.github}
+                target="_blank"
+                rel="noreferrer"
+                className="text-slate-400 hover:text-white text-xl transition-colors duration-200"
+                aria-label="GitHub Profile"
               >
-                <span>View My Projects</span>
-                <ArrowRight className="w-4 h-4" />
+                <GithubIcon className="w-5 h-5 fill-current" />
               </a>
-
-              {/* Primary 2: Download My CV */}
               <a
-                href={personalInfo.cvDownloadPath}
-                download="Abebe_Mihiretu_Demessa_CV.pdf"
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-sm bg-slate-800/90 hover:bg-slate-700/90 text-white border border-slate-700 hover:border-slate-600 shadow-md transition-all hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-slate-400"
+                href={personalInfo.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="text-slate-400 hover:text-blue-400 text-xl transition-colors duration-200"
+                aria-label="LinkedIn Profile"
               >
-                <Download className="w-4 h-4 text-electric-400" />
-                <span>Download My CV</span>
+                <LinkedinIcon className="w-5 h-5 fill-current" />
               </a>
-
-              {/* Secondary: Contact Me */}
               <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl font-medium text-sm text-slate-300 hover:text-white hover:bg-slate-800/50 transition-colors"
+                href={`mailto:${personalInfo.email}`}
+                className="text-slate-400 hover:text-pink-400 text-xl transition-colors duration-200"
+                aria-label="Send Email"
               >
-                <Mail className="w-4 h-4 text-slate-400" />
-                <span>Contact Me</span>
+                <Mail className="w-5 h-5" />
               </a>
-            </div>
-
-            {/* Trust Points */}
-            <div className="pt-6 border-t border-slate-800/80 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs text-slate-400">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-electric-400 flex-shrink-0" />
-                <span>B.Sc. Software Engineering (AAiT)</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-electric-400 flex-shrink-0" />
-                <span>Full-Stack Application Development</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-electric-400 flex-shrink-0" />
-                <span>IT Infrastructure &amp; Systems Support</span>
-              </div>
             </div>
           </div>
+        </motion.div>
 
-          {/* Right Column: Professional Portrait / Visual Presentation Card */}
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-md">
-              {/* Outer Glow */}
-              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-electric-600/30 to-blue-400/20 blur-xl opacity-70 -z-10" />
-
-              <div className="rounded-2xl bg-navy-900 border border-slate-800/90 shadow-2xl p-6 sm:p-7 overflow-hidden">
-                {/* Photo container */}
-                <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-5 bg-navy-950 border border-slate-800 shadow-inner group">
-                  <ImageWithFallback
-                    src={personalInfo.profileImage}
-                    alt={personalInfo.name}
-                    className="w-full h-full object-cover object-top"
-                    fallbackIcon={
-                      <div className="text-center font-bold text-electric-400 tracking-wider">AMD</div>
-                    }
-                    fallbackTitle={personalInfo.name}
-                    fallbackSubtitle="Software Engineer • AAiT"
-                  />
-                </div>
-
-                {/* Card Info summary */}
-                <div className="text-left">
-                  <h2 className="text-lg font-bold text-white tracking-tight mb-0.5">{personalInfo.name}</h2>
-                  <p className="text-xs font-medium text-electric-400 mb-2">Software Engineering &amp; IT Support</p>
-                  <p className="text-xs text-slate-400 mb-4 leading-relaxed">
-                    Full-Stack Web Development, Secure Applications, and Enterprise IT Infrastructure.
-                  </p>
-
-                  {/* Quick Contact & Social links strip */}
-                  <div className="grid grid-cols-3 gap-2 pt-3 border-t border-slate-800 text-xs">
-                    <a
-                      href={personalInfo.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-1.5 p-2 rounded-lg bg-slate-800/50 hover:bg-slate-800 text-slate-300 hover:text-white transition-colors border border-slate-800"
-                      title="GitHub Profile"
-                    >
-                      <GithubIcon className="w-3.5 h-3.5 text-electric-400" />
-                      <span className="truncate">GitHub</span>
-                    </a>
-                    <a
-                      href={personalInfo.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-1.5 p-2 rounded-lg bg-slate-800/50 hover:bg-slate-800 text-slate-300 hover:text-white transition-colors border border-slate-800"
-                      title="LinkedIn Profile"
-                    >
-                      <LinkedinIcon className="w-3.5 h-3.5 text-electric-400" />
-                      <span className="truncate">LinkedIn</span>
-                    </a>
-                    <a
-                      href={`mailto:${personalInfo.email}`}
-                      className="flex items-center justify-center gap-1.5 p-2 rounded-lg bg-slate-800/50 hover:bg-slate-800 text-slate-300 hover:text-white transition-colors border border-slate-800"
-                      title="Send Email"
-                    >
-                      <Mail className="w-3.5 h-3.5 text-electric-400" />
-                      <span className="truncate">Email</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+        {/* Right Column: Multi-Ring Glowing Floating Avatar */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="flex justify-center relative"
+        >
+          {/* Ambient blurred glow */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="w-72 h-72 md:w-[350px] md:h-[350px] rounded-full bg-primary/25 blur-3xl animate-pulse" />
           </div>
 
-        </div>
+          {/* Floating Avatar Container */}
+          <div className="relative w-64 h-64 md:w-[310px] md:h-[310px] float">
+            {/* Outer delicate ring */}
+            <div className="absolute -inset-6 rounded-full border border-primary/20 animate-spin" style={{ animationDuration: '24s' }} />
+            {/* Middle accented ring */}
+            <div className="absolute -inset-3 rounded-full border-2 border-primary/45 border-dashed" />
+            {/* Inner Profile Image Circle */}
+            <div className="relative w-full h-full rounded-full border-4 border-primary/70 overflow-hidden shadow-2xl shadow-primary/30 bg-[#13131a]">
+              <img
+                src={personalInfo.profileImage}
+                alt={personalInfo.name}
+                className="w-full h-full object-cover object-top"
+                loading="eager"
+              />
+            </div>
+          </div>
+        </motion.div>
       </div>
+
+      {/* Scroll Down Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
+      >
+        <span className="text-slate-500 text-[10px] tracking-widest uppercase font-semibold">Scroll</span>
+        <div className="w-5 h-8 border border-slate-700 rounded-full flex justify-center pt-1.5">
+          <div className="w-1 h-2 bg-primary rounded-full animate-bounce" />
+        </div>
+      </motion.div>
     </section>
   );
 };

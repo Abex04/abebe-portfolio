@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Download, FileText } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Menu, X, ArrowRight, Download } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      const sections = ['hero', 'about', 'skills', 'projects', 'experience', 'education', 'contact'];
-      const scrollPosition = window.scrollY + 200;
+      const sections = ['home', 'about', 'skills', 'projects', 'experience', 'contact'];
+      const scrollPosition = window.scrollY + 220;
 
       for (const section of sections) {
         const el = document.getElementById(section);
@@ -32,124 +33,140 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Education', href: '#education' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '#home', id: 'home' },
+    { name: 'About', href: '#about', id: 'about' },
+    { name: 'Skills', href: '#skills', id: 'skills' },
+    { name: 'Projects', href: '#projects', id: 'projects' },
+    { name: 'Experience', href: '#experience', id: 'experience' },
+    { name: 'Contact', href: '#contact', id: 'contact' },
   ];
 
   return (
-    <header
+    <motion.nav
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-navy-950/90 backdrop-blur-md border-b border-slate-800/80 shadow-lg shadow-black/20 py-3.5'
+          ? 'bg-[#050508]/85 backdrop-blur-md border-b border-white/10 py-3.5 shadow-2xl shadow-black/60'
           : 'bg-transparent py-5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          {/* Logo / Monogram */}
-          <a
-            href="#hero"
-            className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-electric-400 rounded-lg p-1"
-          >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-electric-600 to-electric-400 flex items-center justify-center text-white font-bold text-sm tracking-wider shadow-md shadow-electric-500/20 group-hover:scale-105 transition-transform">
-              AMD
-            </div>
-            <div className="flex flex-col text-left">
-              <span className="text-white font-semibold text-base tracking-tight group-hover:text-electric-300 transition-colors">
-                {personalInfo.shortName}
-              </span>
-              <span className="text-xs text-slate-400 font-normal">
-                Software Engineer
-              </span>
-            </div>
-          </a>
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+        {/* Monogram Brand Logo */}
+        <a href="#home" className="flex items-center gap-2 group">
+          <span className="text-2xl font-black gradient-text tracking-tight group-hover:scale-105 transition-transform">
+            AMD.
+          </span>
+          <span className="hidden sm:inline-block text-xs font-semibold uppercase tracking-wider text-slate-400 group-hover:text-slate-200 transition-colors">
+            Abebe Mihiretu
+          </span>
+        </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-2">
-            {navLinks.map((link) => {
-              const isActive = activeSection === link.href.replace('#', '');
-              return (
+        {/* Desktop Navigation Links */}
+        <ul className="hidden md:flex items-center gap-1 bg-[#13131a]/80 backdrop-blur-md border border-[#1e1e2e] px-2 py-1.5 rounded-xl">
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <li key={link.name}>
+                <a
+                  href={link.href}
+                  className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 block ${
+                    isActive
+                      ? 'text-white font-semibold'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  {isActive && (
+                    <motion.span
+                      layoutId="activeNavIndicator"
+                      className="absolute inset-0 bg-primary/20 border border-primary/40 rounded-lg shadow-sm shadow-primary/20"
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                  <span className="relative z-10">{link.name}</span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+
+        {/* Right Action Buttons */}
+        <div className="hidden md:flex items-center gap-3">
+          <a
+            href={personalInfo.cvDownloadPath}
+            download="Abebe_Mihiretu_Demessa_CV.pdf"
+            className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-medium text-slate-300 hover:text-white border border-[#1e1e2e] hover:border-primary/40 transition-colors"
+          >
+            <Download className="w-3.5 h-3.5 text-primary" />
+            <span>CV</span>
+          </a>
+          <a
+            href="#contact"
+            className="flex items-center gap-2 px-5 py-2 animated-gradient text-white rounded-lg text-sm font-semibold glow-sm hover:opacity-95 transition-all duration-200 active:scale-95"
+          >
+            <span>Get in Touch</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </a>
+        </div>
+
+        {/* Mobile Hamburger Toggle */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle navigation menu"
+          className="md:hidden p-2 text-slate-400 hover:text-white focus:outline-none rounded-lg border border-[#1e1e2e]"
+        >
+          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+      </div>
+
+      {/* Mobile Drawer Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-[#0a0a12]/95 backdrop-blur-xl border-b border-white/10 px-6 py-6 overflow-hidden"
+          >
+            <div className="flex flex-col gap-2">
+              {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
-                    isActive
-                      ? 'text-electric-400 bg-electric-500/10'
-                      : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`px-4 py-3 rounded-xl text-base font-medium transition-colors ${
+                    activeSection === link.id
+                      ? 'bg-primary/20 text-white border border-primary/30 font-semibold'
+                      : 'text-slate-300 hover:bg-white/5'
                   }`}
                 >
                   {link.name}
                 </a>
-              );
-            })}
-          </nav>
-
-          {/* Right Action: Download CV */}
-          <div className="hidden sm:flex items-center gap-3">
-            <a
-              href={personalInfo.cvDownloadPath}
-              download="Abebe_Mihiretu_Demessa_CV.pdf"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold bg-electric-600 hover:bg-electric-500 text-white shadow-md shadow-electric-600/25 transition-all hover:shadow-electric-600/40 active:scale-95 focus:outline-none focus:ring-2 focus:ring-electric-400"
-            >
-              <Download className="w-3.5 h-3.5" />
-              <span>Download CV</span>
-            </a>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="flex md:hidden items-center gap-2">
-            <a
-              href={personalInfo.cvDownloadPath}
-              download="Abebe_Mihiretu_Demessa_CV.pdf"
-              className="p-2 text-slate-300 hover:text-white bg-slate-800/60 rounded-lg sm:hidden"
-              title="Download CV"
-            >
-              <FileText className="w-5 h-5 text-electric-400" />
-            </a>
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              type="button"
-              className="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 focus:outline-none focus:ring-2 focus:ring-electric-400"
-              aria-label="Toggle navigation menu"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile drawer */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-navy-950/95 backdrop-blur-xl border-b border-slate-800 px-4 pt-3 pb-6 animate-fadeIn">
-          <nav className="flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-4 py-3 rounded-lg text-base font-medium text-slate-200 hover:text-white hover:bg-slate-800/80 transition-colors"
-              >
-                {link.name}
-              </a>
-            ))}
-            <div className="pt-3 mt-2 border-t border-slate-800">
-              <a
-                href={personalInfo.cvDownloadPath}
-                download="Abebe_Mihiretu_Demessa_CV.pdf"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 w-full py-3 rounded-lg text-sm font-semibold bg-electric-600 hover:bg-electric-500 text-white shadow-md shadow-electric-600/30"
-              >
-                <Download className="w-4 h-4" />
-                <span>Download My CV (PDF)</span>
-              </a>
+              ))}
+              <div className="pt-4 mt-2 border-t border-[#1e1e2e] flex flex-col gap-3">
+                <a
+                  href={personalInfo.cvDownloadPath}
+                  download="Abebe_Mihiretu_Demessa_CV.pdf"
+                  className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold text-slate-200 border border-[#1e1e2e]"
+                >
+                  <Download className="w-4 h-4 text-primary" />
+                  <span>Download CV</span>
+                </a>
+                <a
+                  href="#contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold animated-gradient text-white glow-sm"
+                >
+                  <span>Get in Touch</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
             </div>
-          </nav>
-        </div>
-      )}
-    </header>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 };

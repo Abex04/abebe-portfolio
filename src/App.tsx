@@ -12,12 +12,15 @@ import { Footer } from './components/Footer';
 
 export const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#0B132B] text-slate-100 flex flex-col selection:bg-electric-500 selection:text-white">
+    <div className="min-h-screen bg-[#050508] text-slate-100 flex flex-col relative selection:bg-primary selection:text-white">
+      {/* Background SVG noise overlay matching reference site */}
+      <div className="noise" />
+
       {/* Top Navigation */}
       <Navbar />
 
-      {/* Main Content Area */}
-      <main className="flex-1">
+      {/* Main Content Sections */}
+      <main className="flex-1 relative z-10">
         <Hero />
         <About />
         <Skills />
@@ -28,7 +31,7 @@ export const App: React.FC = () => {
         <Contact />
       </main>
 
-      {/* Professional Footer */}
+      {/* Footer */}
       <Footer />
     </div>
   );
